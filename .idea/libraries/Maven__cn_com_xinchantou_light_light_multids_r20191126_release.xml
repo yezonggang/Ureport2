@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: cn.com.xinchantou.light:light-multids:r20191126-release">
+    <CLASSES>
+      <root url="jar://D:/apache-maven-3.6.3/cangku/cn/com/xinchantou/light/light-multids/r20191126-release/light-multids-r20191126-release.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://D:/apache-maven-3.6.3/cangku/cn/com/xinchantou/light/light-multids/r20191126-release/light-multids-r20191126-release-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://D:/apache-maven-3.6.3/cangku/cn/com/xinchantou/light/light-multids/r20191126-release/light-multids-r20191126-release-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

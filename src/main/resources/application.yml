@@ -1,0 +1,143 @@
+swagger:
+  enabled: false
+  title: Light企业级应用开发平台Rest服务列表
+  version: 1.0.0
+  basePackage: cn.com.xinchantou.light
+
+light:
+  appname: lightplatform
+  #####################
+  # uap model config #
+  #####################
+  auth:
+    status: true
+    #    lightAuthFilters: lightAuthShiroDefaultFilterImpl
+    userInfoService: lightDefaultUserInfoServiceImpl
+    multiAccountLogin: false
+    activeSessionsCacheName: lightActiveSessionCache
+    globalUrl:
+      login-url: /uap/login
+      success-url: /uap/home
+    filterChain:
+      /statics/**@anon,
+      /test/**@anon,
+      /call/**@anon,
+      /c/**@anon,
+      /callservice/**@anon,
+      /openservice/**@anon,
+      /soap/**@anon,
+      /captcha/**@anon,
+      /uap/login@anon,
+      /uap/logout@logout,
+      /sys/login@anon,
+      /sys/logout@logout,
+      /**@sessionexp&authc,
+    session:
+      validation-interval: 60000000
+      global-timeout: 1000000
+  #####################
+  # dict model config #
+  #####################
+  dict:
+    cacheService: hashDictCache
+  #####################
+  # service model config #
+  #####################
+  service:
+    #
+    client:
+      proxy: local#local_service_proxy;scservice#sc_service_proxy;webservice#ws_service_proxy;esbservice#esb_service_proxy;
+      proxy_rules: /djy/.*#scservice;rule2.*#webservice;rule3.*#esbservice;.*#local;
+      ws_server_address: http://localhost:7000/openservice/lws?wsdl
+      #proxy invoke
+      call_type: proxy
+      cloud_service_apigate_address: http://localhost:8000/
+      cloud_service_rules:
+        lightsc-djy-base: /djy/.*
+        lightsc-djy-extend: /djyex/.*
+    #
+    server:
+      ws_base_url: /openservice/*
+      ws_service_url: /lws
+  #########################
+  # security model config #
+  #########################
+  security:
+    component: lightplatform
+    license: license.light
+  ################################
+  # multidatasource model config #
+  ################################
+  datasource:
+    config:
+      - dsname: light_ds_master
+        default: true
+        #      driver-class-name: oracle.jdbc.OracleDriver
+        #      url: jdbc:oracle:thin:@localhost:1521:orcl
+        #      username: system
+        #      password: 123456
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: "jdbc:mysql://121.36.49.7:3306/light_master?serverTimezone=Asia/Shanghai&characterEncoding=UTF-8&characterSetResults=UTF-8&zeroDateTimeBehavior=convertToNull"
+        username: root
+        password: root
+        initialSize: 5
+        minIdle: 3
+        maxActive: 20
+        maxWait: 60000
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 30000
+        #      validationQuery: select 'x'
+        testOnBorrow: false
+        testWhileIdle: true
+        poolPreparedStatements: false
+        #maxPoolPreparedStatementPerConnectionSize: 100
+        filters: stat,wall,slf4j
+        connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+        #useGlobalDataSourceStat: true
+  #    - dsname: light_ds_slave
+  #      driver-class-name: com.mysql.cj.jdbc.Driver
+  #      url: jdbc:mysql://localhost:3306/light_slave?serverTimezone=UTC
+  #      username: root
+  #      password: root
+  #      initialSize: 3
+  #      minIdle: 5
+  #      maxActive: 10
+  #      maxWait: 60000
+  #      poolPreparedStatements: false
+  #      filters: stat,wall,slf4j
+  #      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+
+  ##########################
+  # vcode component config #
+  ##########################
+  vcode:
+    useVcodeLogin: false
+    session_key: vcode_session_key
+    image_width: 110
+    image_height: 34
+    font_size: 32
+    image_border: no
+    font_color: blue
+    char_length: 4
+    char_space: 4
+    font_names: 微软雅黑
+    noise_impl: com.google.code.kaptcha.impl.NoNoise
+  #####################
+  # logging db config #
+  #####################
+  logging:
+    datasource:
+      dsname: light_log_ds
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://121.36.49.7:3306/light_master?serverTimezone=UTC
+      username: root
+      password: root
+      poolPreparedStatements: false
+      filters: stat,wall,slf4j
+
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  config-location: classpath:mybatis.cfg.xml

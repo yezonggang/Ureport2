@@ -1,0 +1,71 @@
+cn.com.xinchantou.light.LightReportApplication -> cn.com.xinchantou.light.LightReportApplication:
+    9:9:void <init>() -> <init>
+    12:13:void main(java.lang.String[]) -> main
+cn.com.xinchantou.light.mapper.LtUreportFileMapper -> cn.com.xinchantou.light.mapper.LtUreportFileMapper:
+    int deleteByPrimaryKey(java.lang.Integer) -> deleteByPrimaryKey
+    int insert(cn.com.xinchantou.light.model.LtUreportFile) -> insert
+    int insertSelective(cn.com.xinchantou.light.model.LtUreportFile) -> insertSelective
+    cn.com.xinchantou.light.model.LtUreportFile selectByPrimaryKey(java.lang.Integer) -> selectByPrimaryKey
+    int updateByPrimaryKeySelective(cn.com.xinchantou.light.model.LtUreportFile) -> updateByPrimaryKeySelective
+    int updateByPrimaryKeyWithBLOBs(cn.com.xinchantou.light.model.LtUreportFile) -> updateByPrimaryKeyWithBLOBs
+    int updateByPrimaryKey(cn.com.xinchantou.light.model.LtUreportFile) -> updateByPrimaryKey
+    int checkExistByName(java.lang.String) -> checkExistByName
+    cn.com.xinchantou.light.model.LtUreportFile selectByName(java.lang.String) -> selectByName
+    java.util.List queryReportFileList() -> queryReportFileList
+    int deleteReportFileByName(java.lang.String) -> deleteReportFileByName
+cn.com.xinchantou.light.model.LtUreportFile -> cn.com.xinchantou.light.model.LtUreportFile:
+    java.lang.Integer reportCode -> a
+    java.lang.String reportName -> b
+    java.lang.String remarks -> c
+    java.util.Date createDate -> d
+    java.lang.String createBy -> e
+    java.util.Date updateDate -> f
+    java.lang.String updateBy -> g
+    byte[] content -> h
+    5:5:void <init>() -> <init>
+    87:87:java.lang.Integer getReportCode() -> getReportCode
+    99:100:void setReportCode(java.lang.Integer) -> setReportCode
+    111:111:java.lang.String getReportName() -> getReportName
+    123:124:void setReportName(java.lang.String) -> setReportName
+    135:135:java.lang.String getRemarks() -> getRemarks
+    147:148:void setRemarks(java.lang.String) -> setRemarks
+    159:159:java.util.Date getCreateDate() -> getCreateDate
+    171:172:void setCreateDate(java.util.Date) -> setCreateDate
+    183:183:java.lang.String getCreateBy() -> getCreateBy
+    195:196:void setCreateBy(java.lang.String) -> setCreateBy
+    207:207:java.util.Date getUpdateDate() -> getUpdateDate
+    219:220:void setUpdateDate(java.util.Date) -> setUpdateDate
+    231:231:java.lang.String getUpdateBy() -> getUpdateBy
+    243:244:void setUpdateBy(java.lang.String) -> setUpdateBy
+    255:255:byte[] getContent() -> getContent
+    267:268:void setContent(byte[]) -> setContent
+cn.com.xinchantou.light.report.config.DatabaseReportProvider -> cn.com.xinchantou.light.report.config.DatabaseReportProvider:
+    org.slf4j.Logger log -> a
+    java.lang.String NAME -> b
+    java.lang.String prefix -> c
+    java.lang.String fileStoreDir -> d
+    boolean disabled -> e
+    cn.com.xinchantou.light.mapper.LtUreportFileMapper ltUreportFileMapper -> ltUreportFileMapper
+    30:34:void <init>() -> <init>
+    48:52:java.io.InputStream loadReport(java.lang.String) -> loadReport
+    61:64:java.lang.String getCorrectName(java.lang.String) -> a
+    73:74:void deleteReport(java.lang.String) -> deleteReport
+    81:86:java.util.List getReportFiles() -> getReportFiles
+    94:94:java.lang.String getName() -> getName
+    103:122:void saveReport(java.lang.String,java.lang.String) -> saveReport
+    128:128:boolean disabled() -> disabled
+    132:133:void setDisabled(boolean) -> setDisabled
+    136:137:void setFileStoreDir(java.lang.String) -> setFileStoreDir
+    144:144:java.lang.String getPrefix() -> getPrefix
+    28:28:void <clinit>() -> <clinit>
+cn.com.xinchantou.light.report.config.LightBuildinDatasource -> cn.com.xinchantou.light.report.config.LightBuildinDatasource:
+    org.slf4j.Logger log -> a
+    cn.com.xinchantou.light.multids.context.DynamicDataSource ds -> ds
+    17:17:void <init>() -> <init>
+    24:24:java.lang.String name() -> name
+    29:35:java.sql.Connection getConnection() -> getConnection
+    15:15:void <clinit>() -> <clinit>
+cn.com.xinchantou.light.report.config.Ureport2Configuration -> cn.com.xinchantou.light.report.config.Ureport2Configuration:
+    14:14:void <init>() -> <init>
+    18:19:org.springframework.boot.web.servlet.ServletRegistrationBean ureportServlet() -> ureportServlet
+    30:35:com.bstek.ureport.UReportPropertyPlaceholderConfigurer propertyConfigurer() -> propertyConfigurer
